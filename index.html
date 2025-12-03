@@ -99,29 +99,126 @@
         );
 
         const DEFAULT_EXERCISES = {
+            // CHEST PRESSING
             'Barbell Bench Press': { primary: 'Chest', secondary: { 'Triceps': 0.5, 'Front Delts': 0.5 } },
-            'Incline Bench Press': { primary: 'Chest', secondary: { 'Triceps': 0.5, 'Front Delts': 0.6 } },
+            'Incline Barbell Bench Press': { primary: 'Chest', secondary: { 'Triceps': 0.5, 'Front Delts': 0.6 } },
+            'Decline Barbell Bench Press': { primary: 'Chest', secondary: { 'Triceps': 0.5, 'Front Delts': 0.4 } },
             'Dumbbell Bench Press': { primary: 'Chest', secondary: { 'Triceps': 0.5, 'Front Delts': 0.5 } },
-            'Cable Flyes': { primary: 'Chest', secondary: {} },
-            'Barbell Row': { primary: 'Back', secondary: { 'Biceps': 0.5, 'Rear Delts': 0.4 } },
-            'Pull-ups': { primary: 'Back', secondary: { 'Biceps': 0.5, 'Rear Delts': 0.3 } },
-            'Lat Pulldown': { primary: 'Back', secondary: { 'Biceps': 0.5, 'Rear Delts': 0.3 } },
-            'Deadlift': { primary: 'Back', secondary: { 'Glutes': 0.5, 'Hamstrings': 0.5, 'Traps': 0.5 } },
-            'Overhead Press': { primary: 'Front Delts', secondary: { 'Triceps': 0.5, 'Side Delts': 0.4 } },
-            'Lateral Raises': { primary: 'Side Delts', secondary: {} },
-            'Rear Delt Flyes': { primary: 'Rear Delts', secondary: {} },
+            'Incline Dumbbell Press': { primary: 'Chest', secondary: { 'Triceps': 0.5, 'Front Delts': 0.6 } },
+            'Decline Dumbbell Press': { primary: 'Chest', secondary: { 'Triceps': 0.5, 'Front Delts': 0.4 } },
+            'Dumbbell Fly': { primary: 'Chest', secondary: {} },
+            'Incline Dumbbell Fly': { primary: 'Chest', secondary: {} },
+            'Cable Fly': { primary: 'Chest', secondary: {} },
+            'Incline Cable Fly': { primary: 'Chest', secondary: {} },
+            'Push-ups': { primary: 'Chest', secondary: { 'Triceps': 0.5, 'Front Delts': 0.5 } },
+            'Dips (Chest Lean)': { primary: 'Chest', secondary: { 'Triceps': 0.5, 'Front Delts': 0.4 } },
+            
+            // BACK - ROWS
+            'Barbell Row': { primary: 'Back', secondary: { 'Biceps': 0.5, 'Rear Delts': 0.3 } },
+            'Pendlay Row': { primary: 'Back', secondary: { 'Biceps': 0.5, 'Rear Delts': 0.3 } },
+            'Dumbbell Row': { primary: 'Back', secondary: { 'Biceps': 0.5, 'Rear Delts': 0.3 } },
+            'Chest Supported Row': { primary: 'Back', secondary: { 'Biceps': 0.5, 'Rear Delts': 0.3 } },
+            'T-Bar Row': { primary: 'Back', secondary: { 'Biceps': 0.5, 'Rear Delts': 0.3 } },
+            'Meadows Row': { primary: 'Back', secondary: { 'Biceps': 0.5, 'Rear Delts': 0.3 } },
+            'Seated Cable Row': { primary: 'Back', secondary: { 'Biceps': 0.5, 'Rear Delts': 0.3 } },
+            'Wide Grip Cable Row': { primary: 'Back', secondary: { 'Biceps': 0.5, 'Rear Delts': 0.3 } },
+            'Single Arm Cable Row': { primary: 'Back', secondary: { 'Biceps': 0.5, 'Rear Delts': 0.3 } },
+            'Machine Row': { primary: 'Back', secondary: { 'Biceps': 0.5, 'Rear Delts': 0.3 } },
+            
+            // BACK - VERTICAL PULLING
+            'Pull-ups': { primary: 'Back', secondary: { 'Biceps': 0.5 } },
+            'Chin-ups': { primary: 'Back', secondary: { 'Biceps': 0.5 } },
+            'Lat Pulldown': { primary: 'Back', secondary: { 'Biceps': 0.5 } },
+            'Underhand Lat Pulldown': { primary: 'Back', secondary: { 'Biceps': 0.5 } },
+            'Deadlift': { primary: 'Back', secondary: { 'Hamstrings': 0.5, 'Glutes': 0.4, 'Traps': 0.3 } },
+            'Rack Pull': { primary: 'Back', secondary: { 'Traps': 0.5, 'Hamstrings': 0.3 } },
+            
+            // SHOULDERS
+            'Overhead Press': { primary: 'Front Delts', secondary: { 'Triceps': 0.5, 'Side Delts': 0.3 } },
+            'Seated Dumbbell Press': { primary: 'Front Delts', secondary: { 'Triceps': 0.5, 'Side Delts': 0.3 } },
+            'Arnold Press': { primary: 'Front Delts', secondary: { 'Triceps': 0.5, 'Side Delts': 0.4 } },
+            'Lateral Raise': { primary: 'Side Delts', secondary: {} },
+            'Cable Lateral Raise': { primary: 'Side Delts', secondary: {} },
+            'Machine Lateral Raise': { primary: 'Side Delts', secondary: {} },
+            'Dumbbell Front Raise': { primary: 'Front Delts', secondary: {} },
             'Face Pulls': { primary: 'Rear Delts', secondary: { 'Traps': 0.3 } },
-            'Squat': { primary: 'Quads', secondary: { 'Glutes': 0.5, 'Hamstrings': 0.3 } },
-            'Leg Press': { primary: 'Quads', secondary: { 'Glutes': 0.4, 'Hamstrings': 0.2 } },
-            'Leg Extension': { primary: 'Quads', secondary: {} },
-            'Romanian Deadlift': { primary: 'Hamstrings', secondary: { 'Glutes': 0.5, 'Back': 0.3 } },
-            'Leg Curl': { primary: 'Hamstrings', secondary: {} },
-            'Hip Thrust': { primary: 'Glutes', secondary: { 'Hamstrings': 0.3 } },
+            'Rear Delt Fly': { primary: 'Rear Delts', secondary: {} },
+            'Cable Rear Delt Fly': { primary: 'Rear Delts', secondary: {} },
+            'Reverse Pec Deck': { primary: 'Rear Delts', secondary: {} },
+            'Upright Row': { primary: 'Side Delts', secondary: { 'Traps': 0.4, 'Front Delts': 0.3 } },
+            
+            // BICEPS
             'Barbell Curl': { primary: 'Biceps', secondary: {} },
-            'Hammer Curl': { primary: 'Biceps', secondary: { 'Forearms': 0.3 } },
-            'Triceps Pushdown': { primary: 'Triceps', secondary: {} },
+            'EZ Bar Curl': { primary: 'Biceps', secondary: {} },
+            'Dumbbell Curl': { primary: 'Biceps', secondary: {} },
+            'Incline Dumbbell Curl': { primary: 'Biceps', secondary: {} },
+            'Hammer Curl': { primary: 'Biceps', secondary: {} },
+            'Cable Curl': { primary: 'Biceps', secondary: {} },
+            'Preacher Curl': { primary: 'Biceps', secondary: {} },
+            'Concentration Curl': { primary: 'Biceps', secondary: {} },
+            'Spider Curl': { primary: 'Biceps', secondary: {} },
+            
+            // TRICEPS
+            'Tricep Pushdown': { primary: 'Triceps', secondary: {} },
+            'Overhead Tricep Extension': { primary: 'Triceps', secondary: {} },
             'Skull Crushers': { primary: 'Triceps', secondary: {} },
-            'Close Grip Bench': { primary: 'Triceps', secondary: { 'Chest': 0.5, 'Front Delts': 0.3 } },
+            'Close Grip Bench Press': { primary: 'Triceps', secondary: { 'Chest': 0.5, 'Front Delts': 0.3 } },
+            'Dips (Upright)': { primary: 'Triceps', secondary: { 'Chest': 0.3, 'Front Delts': 0.3 } },
+            'Cable Overhead Extension': { primary: 'Triceps', secondary: {} },
+            'Rope Pushdown': { primary: 'Triceps', secondary: {} },
+            'Single Arm Pushdown': { primary: 'Triceps', secondary: {} },
+            
+            // QUADS - BILATERAL
+            'Barbell Squat': { primary: 'Quads', secondary: { 'Glutes': 0.5, 'Hamstrings': 0.3 } },
+            'Front Squat': { primary: 'Quads', secondary: { 'Glutes': 0.4 } },
+            'Goblet Squat': { primary: 'Quads', secondary: { 'Glutes': 0.4 } },
+            'Leg Press': { primary: 'Quads', secondary: { 'Glutes': 0.4, 'Hamstrings': 0.3 } },
+            'Hack Squat': { primary: 'Quads', secondary: { 'Glutes': 0.3 } },
+            'Leg Extension': { primary: 'Quads', secondary: {} },
+            'Sissy Squat': { primary: 'Quads', secondary: {} },
+            
+            // QUADS - SINGLE LEG
+            'Bulgarian Split Squat': { primary: 'Quads', secondary: { 'Glutes': 0.5 } },
+            'Walking Lunge': { primary: 'Quads', secondary: { 'Glutes': 0.5 } },
+            'Reverse Lunge': { primary: 'Quads', secondary: { 'Glutes': 0.5 } },
+            'Forward Lunge': { primary: 'Quads', secondary: { 'Glutes': 0.5 } },
+            'Step-ups': { primary: 'Quads', secondary: { 'Glutes': 0.5 } },
+            'Single Leg Press': { primary: 'Quads', secondary: { 'Glutes': 0.4 } },
+            'Single Leg Extension': { primary: 'Quads', secondary: {} },
+            
+            // HAMSTRINGS
+            'Romanian Deadlift': { primary: 'Hamstrings', secondary: { 'Glutes': 0.5, 'Back': 0.3 } },
+            'Stiff Leg Deadlift': { primary: 'Hamstrings', secondary: { 'Glutes': 0.5, 'Back': 0.3 } },
+            'Leg Curl': { primary: 'Hamstrings', secondary: {} },
+            'Seated Leg Curl': { primary: 'Hamstrings', secondary: {} },
+            'Single Leg Curl': { primary: 'Hamstrings', secondary: {} },
+            'Nordic Curl': { primary: 'Hamstrings', secondary: {} },
+            'Good Morning': { primary: 'Hamstrings', secondary: { 'Glutes': 0.4, 'Back': 0.3 } },
+            'Single Leg RDL': { primary: 'Hamstrings', secondary: { 'Glutes': 0.5 } },
+            
+            // GLUTES
+            'Hip Thrust': { primary: 'Glutes', secondary: { 'Hamstrings': 0.3 } },
+            'Barbell Glute Bridge': { primary: 'Glutes', secondary: { 'Hamstrings': 0.3 } },
+            'Single Leg Hip Thrust': { primary: 'Glutes', secondary: { 'Hamstrings': 0.3 } },
+            'Cable Pull Through': { primary: 'Glutes', secondary: { 'Hamstrings': 0.4 } },
+            'Kickbacks': { primary: 'Glutes', secondary: {} },
+            'Single Leg Glute Bridge': { primary: 'Glutes', secondary: { 'Hamstrings': 0.3 } },
+            
+            // TRAPS
+            'Barbell Shrug': { primary: 'Traps', secondary: {} },
+            'Dumbbell Shrug': { primary: 'Traps', secondary: {} },
+            'Farmer Walk': { primary: 'Traps', secondary: {} },
+            
+            // CALVES
+            'Standing Calf Raise': { primary: 'Calves', secondary: {} },
+            'Seated Calf Raise': { primary: 'Calves', secondary: {} },
+            'Calf Press': { primary: 'Calves', secondary: {} },
+            
+            // ABS
+            'Cable Crunch': { primary: 'Abs', secondary: {} },
+            'Hanging Leg Raise': { primary: 'Abs', secondary: {} },
+            'Ab Wheel': { primary: 'Abs', secondary: {} },
+            'Plank': { primary: 'Abs', secondary: {} },
         };
 
         const MUSCLE_GROUPS = ['Chest', 'Back', 'Biceps', 'Triceps', 'Front Delts', 'Side Delts', 'Rear Delts', 
@@ -468,17 +565,17 @@
                                                 });
                                             }
                                         }}
-                                        className="px-2.5 md:px-4 py-1.5 md:py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-xs md:text-sm font-medium transition-colors"
+                                        className="px-3 md:px-4 py-1.5 md:py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-xs md:text-sm font-medium transition-colors"
                                     >
                                         New
                                     </button>
                                     <button 
                                         onClick={saveToFile} 
-                                        className="px-2.5 md:px-4 py-1.5 md:py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs md:text-sm font-medium transition-colors"
+                                        className="px-3 md:px-4 py-1.5 md:py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs md:text-sm font-medium transition-colors"
                                     >
                                         Save
                                     </button>
-                                    <label className="px-2.5 md:px-4 py-1.5 md:py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg text-xs md:text-sm font-medium transition-colors cursor-pointer">
+                                    <label className="px-3 md:px-4 py-1.5 md:py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg text-xs md:text-sm font-medium transition-colors cursor-pointer">
                                         Load
                                         <input type="file" accept=".json" onChange={loadFromFile} className="hidden" />
                                     </label>
@@ -488,7 +585,7 @@
                             <div className="flex flex-wrap gap-1.5 md:gap-2">
                                 <button
                                     onClick={() => setView('planner')}
-                                    className={`px-2.5 md:px-3 py-1 md:py-1.5 rounded-lg text-[11px] md:text-sm font-medium transition-colors ${
+                                    className={`px-3 md:px-3 py-1.5 md:py-1.5 rounded-lg text-xs md:text-sm font-medium transition-colors ${
                                         view === 'planner' ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                                     }`}
                                 >
@@ -496,7 +593,7 @@
                                 </button>
                                 <button
                                     onClick={() => setView('summary')}
-                                    className={`px-2.5 md:px-3 py-1 md:py-1.5 rounded-lg text-[11px] md:text-sm font-medium transition-colors ${
+                                    className={`px-3 md:px-3 py-1.5 md:py-1.5 rounded-lg text-xs md:text-sm font-medium transition-colors ${
                                         view === 'summary' ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                                     }`}
                                 >
@@ -504,7 +601,7 @@
                                 </button>
                                 <button
                                     onClick={() => setView('exercises')}
-                                    className={`px-2.5 md:px-3 py-1 md:py-1.5 rounded-lg text-[11px] md:text-sm font-medium transition-colors ${
+                                    className={`px-3 md:px-3 py-1.5 md:py-1.5 rounded-lg text-xs md:text-sm font-medium transition-colors ${
                                         view === 'exercises' ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                                     }`}
                                 >
@@ -528,7 +625,7 @@
                                                 <button
                                                     key={day}
                                                     onClick={() => setCurrentDay(day)}
-                                                    className={`px-2.5 md:px-4 py-1.5 md:py-2 rounded-lg text-[11px] md:text-sm font-semibold transition-colors ${
+                                                    className={`px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-colors ${
                                                         currentDay === day
                                                             ? 'bg-blue-600 text-white'
                                                             : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
@@ -550,7 +647,7 @@
                                         <h2 className="text-sm md:text-lg font-semibold text-slate-900">Day {currentDay}</h2>
                                         <button
                                             onClick={() => setShowAddExercise(true)}
-                                            className="bg-blue-600 hover:bg-blue-700 text-white px-2 md:px-3 py-1 md:py-1.5 rounded-lg text-[11px] md:text-sm font-medium transition-colors flex items-center gap-1"
+                                            className="bg-blue-600 hover:bg-blue-700 text-white px-2.5 md:px-3 py-1.5 md:py-1.5 rounded-lg text-xs md:text-sm font-medium transition-colors flex items-center gap-1"
                                         >
                                             <Plus size={14} />
                                             <span className="hidden xs:inline md:inline">Add</span>
@@ -855,10 +952,9 @@
                                     <h2 className="text-base md:text-lg font-semibold text-slate-900">Exercise Database</h2>
                                     <button
                                         onClick={() => openExerciseModal()}
-                                        className="bg-blue-600 hover:bg-blue-700 text-white px-2 md:px-3 py-1 md:py-1.5 rounded-lg text-xs md:text-sm font-medium transition-colors flex items-center gap-1"
+                                        className="bg-blue-600 hover:bg-blue-700 text-white px-2.5 md:px-3 py-1.5 md:py-1.5 rounded-lg text-xs md:text-sm font-medium transition-colors flex items-center gap-1"
                                     >
-                                        <Plus size={14} className="md:hidden" />
-                                        <Plus size={16} className="hidden md:block" />
+                                        <Plus size={16} />
                                         <span className="hidden sm:inline">Add Exercise</span>
                                         <span className="sm:hidden">Add</span>
                                     </button>
@@ -947,8 +1043,7 @@
                                             disabled={!selectedExercise || !selectedMuscleGroup}
                                             className="flex-1 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-semibold py-2 md:py-3 rounded-xl md:rounded-2xl transition-colors flex items-center justify-center gap-1.5 md:gap-2 text-sm md:text-base"
                                         >
-                                            <Plus size={16} className="md:hidden" />
-                                            <Plus size={20} className="hidden md:block" />
+                                            <Plus size={18} />
                                             Add Exercise
                                         </button>
                                         <button
