@@ -443,18 +443,18 @@
                 <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-2 md:p-4">
                     <div className="max-w-[1800px] mx-auto">
                         {/* Header */}
-                        <div className="bg-white rounded-2xl shadow-lg p-4 mb-4">
-                            <div className="flex items-center justify-between mb-3">
-                                <div className="flex-1">
+                        <div className="bg-white rounded-2xl shadow-lg p-3 md:p-4 mb-4">
+                            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-3">
+                                <div className="flex-1 min-w-0">
                                     <input
                                         type="text"
                                         value={mesocycle.name}
                                         onChange={(e) => setMesocycle({ ...mesocycle, name: e.target.value })}
-                                        className="text-2xl font-bold text-slate-900 bg-transparent border-none focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2"
+                                        className="text-xl md:text-2xl font-bold text-slate-900 bg-transparent border-none focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 w-full"
                                     />
-                                    <p className="text-slate-600 text-sm mt-0.5">5-week training block with volume tracking</p>
+                                    <p className="text-slate-600 text-xs md:text-sm mt-0.5">5-week training block with volume tracking</p>
                                 </div>
-                                <div className="flex gap-2">
+                                <div className="flex gap-2 justify-center md:justify-end flex-shrink-0">
                                     <button 
                                         onClick={() => {
                                             const name = prompt('Enter mesocycle name:', 'New Mesocycle');
@@ -468,27 +468,27 @@
                                                 });
                                             }
                                         }}
-                                        className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm font-medium transition-colors"
+                                        className="px-3 md:px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-xs md:text-sm font-medium transition-colors"
                                     >
                                         New
                                     </button>
                                     <button 
                                         onClick={saveToFile} 
-                                        className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors"
+                                        className="px-3 md:px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs md:text-sm font-medium transition-colors"
                                     >
                                         Save
                                     </button>
-                                    <label className="px-4 py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg text-sm font-medium transition-colors cursor-pointer">
+                                    <label className="px-3 md:px-4 py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg text-xs md:text-sm font-medium transition-colors cursor-pointer">
                                         Load
                                         <input type="file" accept=".json" onChange={loadFromFile} className="hidden" />
                                     </label>
                                 </div>
                             </div>
                             
-                            <div className="flex gap-2">
+                            <div className="flex flex-wrap gap-2">
                                 <button
                                     onClick={() => setView('planner')}
-                                    className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                                    className={`px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-colors ${
                                         view === 'planner' ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                                     }`}
                                 >
@@ -496,7 +496,7 @@
                                 </button>
                                 <button
                                     onClick={() => setView('summary')}
-                                    className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                                    className={`px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-colors ${
                                         view === 'summary' ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                                     }`}
                                 >
@@ -504,7 +504,7 @@
                                 </button>
                                 <button
                                     onClick={() => setView('exercises')}
-                                    className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                                    className={`px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-colors ${
                                         view === 'exercises' ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                                     }`}
                                 >
@@ -517,9 +517,9 @@
                         {view === 'planner' && (
                             <div className="space-y-4">
                                 {/* Day Selector */}
-                                <div className="bg-white rounded-2xl shadow-lg p-4">
-                                    <h2 className="text-lg font-semibold text-slate-900 mb-3">Training Days</h2>
-                                    <div className="flex gap-2 flex-wrap">
+                                <div className="bg-white rounded-2xl shadow-lg p-3 md:p-4">
+                                    <h2 className="text-base md:text-lg font-semibold text-slate-900 mb-3">Training Days</h2>
+                                    <div className="flex gap-1.5 md:gap-2 flex-wrap">
                                         {[1, 2, 3, 4, 5, 6].map(day => {
                                             const dayData = mesocycle.days.find(d => d.dayNumber === day);
                                             const exerciseCount = dayData?.exercises.length || 0;
@@ -528,7 +528,7 @@
                                                 <button
                                                     key={day}
                                                     onClick={() => setCurrentDay(day)}
-                                                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                                                    className={`px-3 md:px-4 py-2 rounded-lg text-xs md:text-sm font-semibold transition-colors ${
                                                         currentDay === day
                                                             ? 'bg-blue-600 text-white'
                                                             : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
@@ -545,15 +545,17 @@
                                 </div>
 
                                 {/* Exercise Table */}
-                                <div className="bg-white rounded-2xl shadow-lg p-4">
+                                <div className="bg-white rounded-2xl shadow-lg p-3 md:p-4">
                                     <div className="flex items-center justify-between mb-4">
-                                        <h2 className="text-lg font-semibold text-slate-900">Day {currentDay}</h2>
+                                        <h2 className="text-base md:text-lg font-semibold text-slate-900">Day {currentDay}</h2>
                                         <button
                                             onClick={() => setShowAddExercise(true)}
-                                            className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5"
+                                            className="bg-blue-600 hover:bg-blue-700 text-white px-2.5 md:px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-colors flex items-center gap-1"
                                         >
-                                            <Plus size={16} />
-                                            Add Exercise
+                                            <Plus size={14} className="md:hidden" />
+                                            <Plus size={16} className="hidden md:block" />
+                                            <span className="hidden sm:inline">Add Exercise</span>
+                                            <span className="sm:hidden">Add</span>
                                         </button>
                                     </div>
 
