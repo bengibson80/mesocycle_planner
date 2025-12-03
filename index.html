@@ -440,21 +440,21 @@
             const volumeTotals = calculateTotalVolume();
 
             return (
-                <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-2 md:p-4">
+                <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-1.5 md:p-4">
                     <div className="max-w-[1800px] mx-auto">
                         {/* Header */}
-                        <div className="bg-white rounded-2xl shadow-lg p-3 md:p-4 mb-4">
-                            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-3">
+                        <div className="bg-white rounded-2xl shadow-lg p-2 md:p-4 mb-2 md:mb-4">
+                            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-3 mb-2 md:mb-3">
                                 <div className="flex-1 min-w-0">
                                     <input
                                         type="text"
                                         value={mesocycle.name}
                                         onChange={(e) => setMesocycle({ ...mesocycle, name: e.target.value })}
-                                        className="text-xl md:text-2xl font-bold text-slate-900 bg-transparent border-none focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 w-full"
+                                        className="text-lg md:text-2xl font-bold text-slate-900 bg-transparent border-none focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 md:px-2 w-full"
                                     />
-                                    <p className="text-slate-600 text-xs md:text-sm mt-0.5">5-week training block with volume tracking</p>
+                                    <p className="text-slate-600 text-[10px] md:text-sm mt-0.5 px-1 md:px-2">5-week training block</p>
                                 </div>
-                                <div className="flex gap-2 justify-center md:justify-end flex-shrink-0">
+                                <div className="flex gap-1.5 md:gap-2 justify-end md:justify-end flex-shrink-0">
                                     <button 
                                         onClick={() => {
                                             const name = prompt('Enter mesocycle name:', 'New Mesocycle');
@@ -468,27 +468,27 @@
                                                 });
                                             }
                                         }}
-                                        className="px-3 md:px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-xs md:text-sm font-medium transition-colors"
+                                        className="px-2.5 md:px-4 py-1.5 md:py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-xs md:text-sm font-medium transition-colors"
                                     >
                                         New
                                     </button>
                                     <button 
                                         onClick={saveToFile} 
-                                        className="px-3 md:px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs md:text-sm font-medium transition-colors"
+                                        className="px-2.5 md:px-4 py-1.5 md:py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs md:text-sm font-medium transition-colors"
                                     >
                                         Save
                                     </button>
-                                    <label className="px-3 md:px-4 py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg text-xs md:text-sm font-medium transition-colors cursor-pointer">
+                                    <label className="px-2.5 md:px-4 py-1.5 md:py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg text-xs md:text-sm font-medium transition-colors cursor-pointer">
                                         Load
                                         <input type="file" accept=".json" onChange={loadFromFile} className="hidden" />
                                     </label>
                                 </div>
                             </div>
                             
-                            <div className="flex flex-wrap gap-2">
+                            <div className="flex flex-wrap gap-1.5 md:gap-2">
                                 <button
                                     onClick={() => setView('planner')}
-                                    className={`px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-colors ${
+                                    className={`px-2.5 md:px-3 py-1 md:py-1.5 rounded-lg text-[11px] md:text-sm font-medium transition-colors ${
                                         view === 'planner' ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                                     }`}
                                 >
@@ -496,7 +496,7 @@
                                 </button>
                                 <button
                                     onClick={() => setView('summary')}
-                                    className={`px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-colors ${
+                                    className={`px-2.5 md:px-3 py-1 md:py-1.5 rounded-lg text-[11px] md:text-sm font-medium transition-colors ${
                                         view === 'summary' ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                                     }`}
                                 >
@@ -504,7 +504,7 @@
                                 </button>
                                 <button
                                     onClick={() => setView('exercises')}
-                                    className={`px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-colors ${
+                                    className={`px-2.5 md:px-3 py-1 md:py-1.5 rounded-lg text-[11px] md:text-sm font-medium transition-colors ${
                                         view === 'exercises' ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                                     }`}
                                 >
@@ -515,11 +515,11 @@
 
                         {/* Day Planner View */}
                         {view === 'planner' && (
-                            <div className="space-y-4">
+                            <div className="space-y-2 md:space-y-4">
                                 {/* Day Selector */}
-                                <div className="bg-white rounded-2xl shadow-lg p-3 md:p-4">
-                                    <h2 className="text-base md:text-lg font-semibold text-slate-900 mb-3">Training Days</h2>
-                                    <div className="flex gap-1.5 md:gap-2 flex-wrap">
+                                <div className="bg-white rounded-2xl shadow-lg p-2 md:p-4">
+                                    <h2 className="text-sm md:text-lg font-semibold text-slate-900 mb-2 md:mb-3">Training Days</h2>
+                                    <div className="flex gap-1 md:gap-2 flex-wrap">
                                         {[1, 2, 3, 4, 5, 6].map(day => {
                                             const dayData = mesocycle.days.find(d => d.dayNumber === day);
                                             const exerciseCount = dayData?.exercises.length || 0;
@@ -528,7 +528,7 @@
                                                 <button
                                                     key={day}
                                                     onClick={() => setCurrentDay(day)}
-                                                    className={`px-3 md:px-4 py-2 rounded-lg text-xs md:text-sm font-semibold transition-colors ${
+                                                    className={`px-2.5 md:px-4 py-1.5 md:py-2 rounded-lg text-[11px] md:text-sm font-semibold transition-colors ${
                                                         currentDay === day
                                                             ? 'bg-blue-600 text-white'
                                                             : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
@@ -536,7 +536,7 @@
                                                 >
                                                     Day {day}
                                                     {exerciseCount > 0 && (
-                                                        <span className="ml-1 text-xs opacity-75">({exerciseCount})</span>
+                                                        <span className="ml-1 text-[10px] md:text-xs opacity-75">({exerciseCount})</span>
                                                     )}
                                                 </button>
                                             );
@@ -545,17 +545,16 @@
                                 </div>
 
                                 {/* Exercise Table */}
-                                <div className="bg-white rounded-2xl shadow-lg p-3 md:p-4">
-                                    <div className="flex items-center justify-between mb-4">
-                                        <h2 className="text-base md:text-lg font-semibold text-slate-900">Day {currentDay}</h2>
+                                <div className="bg-white rounded-2xl shadow-lg p-2 md:p-4">
+                                    <div className="flex items-center justify-between mb-3 md:mb-4">
+                                        <h2 className="text-sm md:text-lg font-semibold text-slate-900">Day {currentDay}</h2>
                                         <button
                                             onClick={() => setShowAddExercise(true)}
-                                            className="bg-blue-600 hover:bg-blue-700 text-white px-2.5 md:px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-colors flex items-center gap-1"
+                                            className="bg-blue-600 hover:bg-blue-700 text-white px-2 md:px-3 py-1 md:py-1.5 rounded-lg text-[11px] md:text-sm font-medium transition-colors flex items-center gap-1"
                                         >
-                                            <Plus size={14} className="md:hidden" />
-                                            <Plus size={16} className="hidden md:block" />
-                                            <span className="hidden sm:inline">Add Exercise</span>
-                                            <span className="sm:hidden">Add</span>
+                                            <Plus size={14} />
+                                            <span className="hidden xs:inline md:inline">Add</span>
+                                            <span className="hidden sm:inline">Exercise</span>
                                         </button>
                                     </div>
 
@@ -565,36 +564,36 @@
                                             {isMobile ? (
                                                 <div>
                                                     {/* Week Selector for Mobile */}
-                                                    <div className="flex items-center justify-between mb-4 bg-slate-50 p-3 rounded-xl">
+                                                    <div className="flex items-center justify-between mb-3 bg-slate-50 p-2 rounded-xl">
                                                         <button
                                                             onClick={() => setCurrentWeek(Math.max(1, currentWeek - 1))}
                                                             disabled={currentWeek === 1}
-                                                            className="px-3 py-2 bg-blue-600 text-white rounded-lg disabled:opacity-30 disabled:bg-slate-300 font-semibold text-sm"
+                                                            className="px-2.5 py-1.5 bg-blue-600 text-white rounded-lg disabled:opacity-30 disabled:bg-slate-300 font-semibold text-xs"
                                                         >
                                                             ← Prev
                                                         </button>
                                                         <div className="text-center">
-                                                            <div className="text-lg font-bold text-slate-900">Week {currentWeek}</div>
-                                                            <div className="text-xs text-slate-600">Tap to switch weeks</div>
+                                                            <div className="text-base font-bold text-slate-900">Week {currentWeek}</div>
+                                                            <div className="text-[10px] text-slate-600">Tap to switch</div>
                                                         </div>
                                                         <button
                                                             onClick={() => setCurrentWeek(Math.min(5, currentWeek + 1))}
                                                             disabled={currentWeek === 5}
-                                                            className="px-3 py-2 bg-blue-600 text-white rounded-lg disabled:opacity-30 disabled:bg-slate-300 font-semibold text-sm"
+                                                            className="px-2.5 py-1.5 bg-blue-600 text-white rounded-lg disabled:opacity-30 disabled:bg-slate-300 font-semibold text-xs"
                                                         >
                                                             Next →
                                                         </button>
                                                     </div>
                                                     
                                                     {/* Week Pills for Quick Navigation */}
-                                                    <div className="flex gap-2 mb-4 justify-center">
+                                                    <div className="flex gap-1.5 mb-3 justify-center">
                                                         {[1, 2, 3, 4, 5].map(week => {
                                                             const bgColors = ['bg-blue-100', 'bg-blue-200', 'bg-blue-300', 'bg-blue-400', 'bg-blue-500'];
                                                             return (
                                                                 <button
                                                                     key={week}
                                                                     onClick={() => setCurrentWeek(week)}
-                                                                    className={`w-12 h-12 rounded-lg font-bold text-sm transition-colors ${
+                                                                    className={`w-10 h-10 rounded-lg font-bold text-xs transition-colors ${
                                                                         currentWeek === week
                                                                             ? bgColors[week - 1] + ' text-white ring-2 ring-blue-600'
                                                                             : 'bg-slate-200 text-slate-600'
@@ -794,8 +793,8 @@
 
                         {/* Volume Summary View */}
                         {view === 'summary' && (
-                            <div className="bg-white rounded-2xl shadow-lg p-4">
-                                <h2 className="text-lg font-semibold text-slate-900 mb-4">Weekly Volume Totals</h2>
+                            <div className="bg-white rounded-2xl shadow-lg p-2 md:p-4">
+                                <h2 className="text-base md:text-lg font-semibold text-slate-900 mb-3 md:mb-4">Weekly Volume Totals</h2>
                                 
                                 {Object.keys(volumeTotals).length > 0 ? (
                                     <div className="overflow-x-auto">
@@ -851,15 +850,17 @@
 
                         {/* Exercise Database View */}
                         {view === 'exercises' && (
-                            <div className="bg-white rounded-2xl shadow-lg p-4">
-                                <div className="flex items-center justify-between mb-4">
-                                    <h2 className="text-lg font-semibold text-slate-900">Exercise Database</h2>
+                            <div className="bg-white rounded-2xl shadow-lg p-2 md:p-4">
+                                <div className="flex items-center justify-between mb-3 md:mb-4">
+                                    <h2 className="text-base md:text-lg font-semibold text-slate-900">Exercise Database</h2>
                                     <button
                                         onClick={() => openExerciseModal()}
-                                        className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5"
+                                        className="bg-blue-600 hover:bg-blue-700 text-white px-2 md:px-3 py-1 md:py-1.5 rounded-lg text-xs md:text-sm font-medium transition-colors flex items-center gap-1"
                                     >
-                                        <Plus size={16} />
-                                        Add Exercise
+                                        <Plus size={14} className="md:hidden" />
+                                        <Plus size={16} className="hidden md:block" />
+                                        <span className="hidden sm:inline">Add Exercise</span>
+                                        <span className="sm:hidden">Add</span>
                                     </button>
                                 </div>
                                 
@@ -902,20 +903,20 @@
 
                         {/* Add Exercise Modal */}
                         {showAddExercise && (
-                            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-                                <div className="bg-white rounded-3xl shadow-2xl p-6 max-w-lg w-full">
-                                    <h2 className="text-2xl font-bold text-slate-900 mb-6">Add Exercise to Day {currentDay}</h2>
+                            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-2 md:p-4 z-50">
+                                <div className="bg-white rounded-2xl md:rounded-3xl shadow-2xl p-3 md:p-6 max-w-lg w-full">
+                                    <h2 className="text-lg md:text-2xl font-bold text-slate-900 mb-3 md:mb-6">Add Exercise to Day {currentDay}</h2>
                                     
-                                    <div className="space-y-4">
+                                    <div className="space-y-3 md:space-y-4">
                                         <div>
-                                            <label className="block text-sm font-medium text-slate-700 mb-2">Muscle Group</label>
+                                            <label className="block text-xs md:text-sm font-medium text-slate-700 mb-1.5 md:mb-2">Muscle Group</label>
                                             <select
                                                 value={selectedMuscleGroup}
                                                 onChange={(e) => {
                                                     setSelectedMuscleGroup(e.target.value);
                                                     setSelectedExercise(''); // Clear exercise when muscle group changes
                                                 }}
-                                                className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 focus:border-blue-500 focus:outline-none transition-colors"
+                                                className="w-full px-3 md:px-4 py-2 md:py-3 rounded-xl md:rounded-2xl border-2 border-slate-200 focus:border-blue-500 focus:outline-none transition-colors text-sm md:text-base"
                                             >
                                                 <option value="">Select muscle group...</option>
                                                 {MUSCLE_GROUPS.map(muscle => (
@@ -925,11 +926,11 @@
                                         </div>
 
                                         <div>
-                                            <label className="block text-sm font-medium text-slate-700 mb-2">Exercise</label>
+                                            <label className="block text-xs md:text-sm font-medium text-slate-700 mb-1.5 md:mb-2">Exercise</label>
                                             <select
                                                 value={selectedExercise}
                                                 onChange={(e) => setSelectedExercise(e.target.value)}
-                                                className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 focus:border-blue-500 focus:outline-none transition-colors"
+                                                className="w-full px-3 md:px-4 py-2 md:py-3 rounded-xl md:rounded-2xl border-2 border-slate-200 focus:border-blue-500 focus:outline-none transition-colors text-sm md:text-base"
                                                 disabled={!selectedMuscleGroup}
                                             >
                                                 <option value="">Select exercise...</option>
@@ -940,18 +941,19 @@
                                         </div>
                                     </div>
 
-                                    <div className="flex gap-3 mt-6">
+                                    <div className="flex gap-2 md:gap-3 mt-4 md:mt-6">
                                         <button
                                             onClick={addExerciseToDay}
                                             disabled={!selectedExercise || !selectedMuscleGroup}
-                                            className="flex-1 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-2xl transition-colors flex items-center justify-center gap-2"
+                                            className="flex-1 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-semibold py-2 md:py-3 rounded-xl md:rounded-2xl transition-colors flex items-center justify-center gap-1.5 md:gap-2 text-sm md:text-base"
                                         >
-                                            <Plus size={20} />
+                                            <Plus size={16} className="md:hidden" />
+                                            <Plus size={20} className="hidden md:block" />
                                             Add Exercise
                                         </button>
                                         <button
                                             onClick={() => setShowAddExercise(false)}
-                                            className="px-6 py-3 bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold rounded-2xl transition-colors"
+                                            className="px-4 md:px-6 py-2 md:py-3 bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold rounded-xl md:rounded-2xl transition-colors text-sm md:text-base"
                                         >
                                             Cancel
                                         </button>
